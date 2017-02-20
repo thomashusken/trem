@@ -9,7 +9,7 @@ simrem(N = 5000, time = 365, b0 = -7, bpers = NULL, bage = NULL,
   aint = NULL, tint = NULL, ...)
 }
 \arguments{
-\item{N}{the total (non-truncated population size)}
+\item{N}{the total (non-truncated) population size}
 
 \item{time}{the observation window}
 
@@ -34,7 +34,7 @@ simrem(N = 5000, time = 365, b0 = -7, bpers = NULL, bage = NULL,
 \item{tint}{the phase of the cyclical interaction effect}
 }
 \value{
-a 3D-array of dimensions n \times time \times variables. Note that n will vary over each simulation due to sampling fluctuation by drawing from
+a 3D-array of dimensions n x time x variables. Note that n will vary over each simulation due to sampling fluctuation by drawing from
 the total population N
 }
 \description{

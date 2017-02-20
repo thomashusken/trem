@@ -22,7 +22,7 @@ size
 }
 \details{
 This is a specialised function, as it requires the data to be in a
-three-dimensional format (persons \times time \times variables). The default
+three-dimensional format (persons x time x variables). The default
 optimization procedure is a Newton-Raphson method, while numerical
 optimization via \code{optim} is also possible
 }

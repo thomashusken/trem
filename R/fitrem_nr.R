@@ -14,6 +14,7 @@
 #' @param bstart A vector of starting values
 #' @return A coefficient matrix, point and interval estimate of the population
 #'   size, loglikelihood and number of iterations
+#' @export
 
 
 fitrem <- function(data, bstart, ...) {
