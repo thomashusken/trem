@@ -1,0 +1,17 @@
+Package: trem
+Title: Introduces models to estimate the size of elusive populations from
+    single-source capture-recapture data.
+Version: 0.0.0.9000
+Authors@R: person("Thomas", "Husken", email = "thomashusken@gmail.com", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+Depends:
+    R (>= 3.3.0)
+License: CC0
+Encoding: UTF-8
+LazyData: true
+URL: http://github.com/thomashusken/trem
+Imports:
+    abind,
+    tensor,
+    lubridate
+RoxygenNote: 5.0.1
