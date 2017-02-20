@@ -3,7 +3,7 @@
 #'\code{simrem} simulates zero-truncated events data and returns a 3D-array
 #'
 #'
-#'@param N the total (non-truncated population size)
+#'@param N the total (non-truncated) population size
 #'@param time the observation window
 #'@param b0 the intercept, default value is -7
 #'@param bpers coefficients for time-invariant covariates. The data is simulated as ~ B(0.5)
@@ -17,6 +17,7 @@
 #'@param tint the phase of the cyclical interaction effect
 #'@return a 3D-array of dimensions n x time x variables. Note that n will vary over each simulation due to sampling fluctuation by drawing from
 #'the total population N
+#'@export
 
 
 
@@ -68,7 +69,7 @@ simrem <- function(N=5000, time=365, b0=-7, bpers=NULL, bage = NULL, cyc = F, al
     dimpers <- 1 + lbpers
     costint <- X[, , dimcos] * X[, , dimpers]
     sintint <- X[, , dimsin] * X[, , dimpers]
-    X       <- abind(X, costint, sintint)
+    X       <- abind::abind(X, costint, sintint)
   }
 
 
