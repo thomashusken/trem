@@ -42,11 +42,11 @@ make_event_matrix <- function(data, dcols, startt, sel, ...) {
     } else {
         if (class(sel) == "Date") {
             num <- (ymd(sel) + 1) - startt
-            Events <- matrix(0, n, (max(num) + 1) - min(num))
+            events <- matrix(0, n, (max(num) + 1) - min(num))
             for (j in 1:dim(days_of_year)[2]) {
                 pick <- apply(days_of_year, 2, function(x) which(x %in% num))[[j]]
                 for (i in pick) {
-                  Events[i, as.numeric(days_of_year[i, j]) - (min(num - 1))] <- 1
+                  events[i, as.numeric(days_of_year[i, j]) - (min(num - 1))] <- 1
                 }
             }
         } else if (class(sel) != "Date")
