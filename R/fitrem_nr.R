@@ -94,4 +94,13 @@ print.trem <- function(x, ...){
   cat("\n\n", "Estimation converged in", x$iter, "iterations")
 }
 
+summary.trem <- function(x, ...){
+  printCoefmat(x$coef, has.Pvalue = T)
+  cat("\n", "Nhat (95%-CI) ", x$Nhat, " (" ,x$CI[1]," - ", x$CI[2], ")", sep = "")
+  cat("\n\n", "Loglikelihood:", x$logl)
+  cat("\n\n", "AIC:", x$AIC)
+  cat("\n\n", "Estimation converged in", x$iter, "iterations")
+
+}
+
 
