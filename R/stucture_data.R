@@ -1,8 +1,8 @@
 #' Structure recurrent events data to 3d format
 #'
-#' \code{structure_data} restructures a wide-format matrix to a 3d array, which can be passed on to \code{fitrem} to fit a model
+#' \code{structure_data} restructures a wide-format matrix or data frame to a 3d array, which can be passed on to \code{fitrem} to fit a model
 #'
-#' @param data a wide-format matrix
+#' @param data a wide-format matrix or data frame
 #' @param dcols column names containing capture dates
 #' @param xcolnames column names containing time-invariant covariates
 #' @param otime the observation window in days
@@ -15,7 +15,7 @@ structure_data <- function(data, dcols, xcolnames, otime, ...) {
     covmatrix <- make_cov_array(data, xcolnames, otime, ...)
     data <- abind::abind(events, covmatrix)
     output <- data
-    dimnames(output)[[3]] <- c("C", paste0(dimnames(covmatrix)[[3]]))
+    dimnames(output)[[3]] <- c("Y", paste0(dimnames(covmatrix)[[3]]))
     return(output)
 }
 
