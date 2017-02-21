@@ -22,7 +22,9 @@
 
 
 simrem <- function(N=5000, time=365, b0=-7, bpers=NULL, bage = NULL, cyc = F, alpha=NULL, theta=NULL, period=time, int = F, aint=NULL, tint = NULL, ...){
-  if(!is.numeric(bage) & !is.null(bage)) stop("Invalid input for age coefficient")
+  if(!is.numeric(b0)) stop("Invalid input for b0")
+  if(!is.numeric(bage) & !is.null(bage)) stop("Invalid input for bage")
+  if(!is.numeric(bpers) & !is.null(bpers)) stop("Invalid input for bpers")
   b        <- c(b0,bpers,bage)
   lbpers   <- length(bpers[bpers!=0])
   lbage    <- length(bage)
