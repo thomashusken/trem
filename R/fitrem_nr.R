@@ -18,7 +18,7 @@
 
 
 fitrem <- function(data, bstart, ...) {
-
+    if(missing(data)) stop("No data supplied")
     events <- data[, , 1]
     X <- data[, , -1, drop = F]
     p <- dim(X)[3]
@@ -97,8 +97,7 @@ fitrem <- function(data, bstart, ...) {
 
 print.trem <- function(x, ...){
   printCoefmat(x$coef, has.Pvalue = T)
-  cat("\n", "Nhat (95%-CI) ", x$Nhat, " (" ,x$CI[1]," - ", x$CI[2], ")", sep = "")
-  cat("\n\n", "Estimation converged in", x$iter, "iterations")
+  cat("\n", "Nhat (95%-CI): ", x$Nhat, " (" ,x$CI[1]," - ", x$CI[2], ")", sep = "")
 }
 
 
@@ -113,7 +112,6 @@ summary.trem <- function(x, ...){
   cat("\n\n", "Loglikelihood:", x$logl)
   cat("\n\n", "AIC:", x$AIC)
   cat("\n\n", "Estimation converged in", x$iter, "iterations")
-
 }
 
 
