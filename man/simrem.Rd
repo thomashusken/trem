@@ -32,6 +32,8 @@ simrem(N = 5000, time = 365, b0 = -7, bpers = NULL, bage = NULL,
 \item{aint}{the amplitude of the cyclical interaction effect}
 
 \item{tint}{the phase of the cyclical interaction effect}
+
+\item{...}{Further arguments to be passed from or to other methods}
 }
 \value{
 a 3D-array of dimensions n x time x variables. Note that n will vary over each simulation due to sampling fluctuation by drawing from

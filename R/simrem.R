@@ -15,6 +15,7 @@
 #'@param int specify whether an interaction between the cyclical effect and the first variable of \code{bpers} should be included
 #'@param aint the amplitude of the cyclical interaction effect
 #'@param tint the phase of the cyclical interaction effect
+#'@param ... Further arguments to be passed from or to other methods
 #'@return a 3D-array of dimensions n x time x variables. Note that n will vary over each simulation due to sampling fluctuation by drawing from
 #'the total population N
 #'@export
