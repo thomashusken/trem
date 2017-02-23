@@ -7,9 +7,11 @@
 fitrem(data, bstart, ...)
 }
 \arguments{
-\item{data}{An array with at least three dimensions}
+\item{data}{An array of at least three dimensions}
 
 \item{bstart}{A vector of starting values}
+
+\item{...}{Further arguments to be passed from or to other methods}
 }
 \value{
 A coefficient matrix, point and interval estimate of the population
