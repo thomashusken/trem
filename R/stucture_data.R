@@ -6,6 +6,7 @@
 #' @param dcols column names containing capture dates
 #' @param xcolnames column names containing time-invariant covariates
 #' @param otime the observation window in days
+#' @param ... Further arguments to be passed from or to other methods
 #' @return a 3D-array of dimension n x otime x \code{length(xcolnames)}
 #' @export
 
@@ -26,7 +27,7 @@ make_event_matrix <- function(data, dcols, startt, sel, ...) {
     }
 
     if (class(data[, dcols[1]]) %in% c("POSIXct", "Date")) {
-        days_of_year <- apply(data[, dcols], 2, function(x) ymd(x) - startt)
+        days_of_year <- apply(data[, dcols], 2, function(x) lubridate::ymd(x) - startt)
     } else if (class(data[, dcols[1]]) %in% c("numeric", "integer")) {
         days_of_year <- data[, dcols]
     }
@@ -34,14 +35,14 @@ make_event_matrix <- function(data, dcols, startt, sel, ...) {
     n <- dim(data)[1]
 
     if (missing(sel)) {
-        otime <- max(ymd(data[, dcols[1]])) - min(ymd(data[, dcols[1]]))
+        otime <- max(lubridate::ymd(data[, dcols[1]])) - min(lubridate::ymd(data[, dcols[1]]))
         events <- matrix(0, n, otime)
         for (i in 1:n) {
             events[i, as.numeric(days_of_year[i, ])] <- 1
         }
     } else {
         if (class(sel) == "Date") {
-            num <- (ymd(sel) + 1) - startt
+            num <- (lubridate::ymd(sel) + 1) - startt
             events <- matrix(0, n, (max(num) + 1) - min(num))
             for (j in 1:dim(days_of_year)[2]) {
                 pick <- apply(days_of_year, 2, function(x) which(x %in% num))[[j]]

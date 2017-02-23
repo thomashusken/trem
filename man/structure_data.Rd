@@ -7,18 +7,20 @@
 structure_data(data, dcols, xcolnames, otime, ...)
 }
 \arguments{
-\item{data}{a wide-format matrix}
+\item{data}{a wide-format matrix or data frame}
 
 \item{dcols}{column names containing capture dates}
 
 \item{xcolnames}{column names containing time-invariant covariates}
 
 \item{otime}{the observation window in days}
+
+\item{...}{Further arguments to be passed from or to other methods}
 }
 \value{
 a 3D-array of dimension n x otime x \code{length(xcolnames)}
 }
 \description{
-\code{structure_data} restructures a wide-format matrix to a 3d array, which can be passed on to \code{fitrem} to fit a model
+\code{structure_data} restructures a wide-format matrix or data frame to a 3d array, which can be passed on to \code{fitrem} to fit a model
 }
 
