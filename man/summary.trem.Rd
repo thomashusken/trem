@@ -4,7 +4,12 @@
 \alias{summary.trem}
 \title{Print a summary of the results from \code{fitrem}}
 \usage{
-\method{summary}{trem}(x, ...)
+\method{summary}{trem}(object, ...)
+}
+\arguments{
+\item{object}{object of class \code{trem}}
+
+\item{...}{Further arguments to be passed from or to other methods}
 }
 \description{
 \code{summary.trem} is a S3 method that prints more information than \code{print.trem}
